@@ -40,7 +40,7 @@
                 php81Extensions.pdo_sqlite
               ];
               shellHook = "";
-            }
+            };
           };
         }
       );
