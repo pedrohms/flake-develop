@@ -15,7 +15,6 @@
                 nodejs
                 go
                 python3
-                sumneko-lua-language-server
                 maven
                 jdk  
               ];
