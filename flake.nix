@@ -28,6 +28,13 @@
               ];
               shellHook = "";
             };
+            python3 = pkgs.mkShell {
+              name = "nix2";
+              buildInputs = with pkgs; [
+                python3
+              ];
+              shellHook = "";
+            };
             php = pkgs.mkShell {
               name = "php";
               buildInputs = with pkgs; [
