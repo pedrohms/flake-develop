@@ -20,15 +20,42 @@
               ];
               shellHook = "";
             };
+            jdk = pkgs.mkShell {
+              name = "jdk";
+              buildInputs = with pkgs; [
+                jdk
+                maven
+                gradle
+              ];
+              shellHook = "";
+            };
+            jdk17 = pkgs.mkShell {
+              name = "jdk17";
+              buildInputs = with pkgs; [
+                jdk17
+                maven
+                gradle
+              ];
+              shellHook = "";
+            };
+            jdk11 = pkgs.mkShell {
+              name = "jdk11";
+              buildInputs = with pkgs; [
+                jdk11
+                maven
+                gradle
+              ];
+              shellHook = "";
+            };
             python2 = pkgs.mkShell {
-              name = "nix2";
+              name = "python2";
               buildInputs = with pkgs; [
                 python2
               ];
               shellHook = "";
             };
             python3 = pkgs.mkShell {
-              name = "nix2";
+              name = "python3";
               buildInputs = with pkgs; [
                 python3
               ];
