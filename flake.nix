@@ -47,6 +47,15 @@
               ];
               shellHook = "";
             };
+            jdk8 = pkgs.mkShell {
+              name = "jdk8";
+              buildInputs = with pkgs; [
+                jdk8_headless
+                maven
+                gradle
+              ];
+              shellHook = "";
+            };
             python2 = pkgs.mkShell {
               name = "python2";
               buildInputs = with pkgs; [
