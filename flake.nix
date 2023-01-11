@@ -83,7 +83,15 @@
               ];
               shellHook = "";
             };
-          };
+            nodejs = {
+              default = pkgs.mkShell {
+                name = "nodejs";
+                buildInputs = with pkgs; [
+                  nodejs-19_x
+                ];
+                shellHook = "";
+              };
+            };
         }
       );
 }
