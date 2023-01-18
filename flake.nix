@@ -17,6 +17,7 @@
                 python3
                 maven
                 jdk  
+                google-java-format
               ];
               shellHook = "";
             };
@@ -26,6 +27,7 @@
                 jdk
                 maven
                 gradle
+                google-java-format
               ];
               shellHook = "";
             };
@@ -35,6 +37,7 @@
                 jdk17
                 maven
                 gradle
+                google-java-format
               ];
               shellHook = "";
             };
@@ -44,6 +47,7 @@
                 jdk11
                 maven
                 gradle
+                google-java-format
               ];
               shellHook = "";
             };
@@ -53,6 +57,7 @@
                 jdk8_headless
                 maven
                 gradle
+                google-java-format
               ];
               shellHook = "";
             };
