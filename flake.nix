@@ -92,6 +92,7 @@
               name = "nodejs";
               buildInputs = with pkgs; [
                 nodejs-19_x
+                nodePackages_latest.pnpm
               ];
               shellHook = "";
             };
