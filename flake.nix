@@ -93,6 +93,7 @@
               buildInputs = with pkgs; [
                 nodejs-19_x
                 nodePackages_latest.pnpm
+                nodePackages_latest.expo-cli
               ];
               shellHook = "";
             };
