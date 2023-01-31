@@ -94,6 +94,7 @@
                 nodejs-19_x
                 nodePackages_latest.pnpm
                 nodePackages_latest.expo-cli
+                nodePackages_latest.eas-cli
               ];
               shellHook = "";
             };
