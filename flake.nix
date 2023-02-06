@@ -99,7 +99,7 @@
               shellHook = "";
             };
             flutter = pkgs.mkShell {
-              name = "jdk";
+              name = "flutter";
               buildInputs = with pkgs; [
                 jdk
                 maven
