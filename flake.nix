@@ -98,18 +98,6 @@
               ];
               shellHook = "";
             };
-            flutter = pkgs.mkShell {
-              name = "flutter";
-              buildInputs = with pkgs; [
-                jdk
-                maven
-                gradle
-                google-java-format
-                flutter
-                android-tools
-              ];
-              shellHook = "";
-            };
           };
         }
       );
