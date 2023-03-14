@@ -95,7 +95,8 @@
                 nodePackages_latest.pnpm
                 nodePackages_latest.expo-cli
                 nodePackages_latest.eas-cli
-                nodePackages.prisma
+                nodePackages_latest.prisma
+                openssl
               ];
               shellHook = "";
             };
