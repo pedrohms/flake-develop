@@ -97,6 +97,10 @@
                 nodePackages_latest.eas-cli
                 nodePackages_latest.prisma
                 openssl
+                protobuf3_20
+                cargo
+                pkg-config
+                zlib
               ];
               shellHook = "";
             };
