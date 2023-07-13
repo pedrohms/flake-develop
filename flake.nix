@@ -12,7 +12,7 @@
             default = pkgs.mkShell {
               name = "nix";
               buildInputs = with pkgs; [
-                nodejs
+                nodejs_20
                 go
                 python3
                 maven
@@ -79,11 +79,11 @@
             php = pkgs.mkShell {
               name = "php";
               buildInputs = with pkgs; [
-                php81Packages.composer 
-                php81
+                php83Packages.composer 
+                php83
                 ripgrep
                 fish
-                nodejs-18_x
+                nodejs_20
                 php81Extensions.pdo_mysql
                 php81Extensions.pdo_sqlite
               ];
@@ -92,7 +92,7 @@
             nodejs = pkgs.mkShell {
               name = "nodejs";
               buildInputs = with pkgs; [
-                nodejs-19_x
+                nodejs_20
                 nodePackages_latest.pnpm
                 nodePackages_latest.expo-cli
                 nodePackages_latest.eas-cli
