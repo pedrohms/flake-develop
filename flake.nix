@@ -18,6 +18,7 @@
                 maven
                 jdk  
                 google-java-format
+                sumneko-lua-language-server
               ];
               shellHook = "";
             };
