@@ -94,8 +94,6 @@
               buildInputs = with pkgs; [
                 nodejs_20
                 nodePackages_latest.pnpm
-                nodePackages_latest.expo-cli
-                nodePackages_latest.eas-cli
                 nodePackages_latest.prisma
                 openssl
                 protobuf3_20
