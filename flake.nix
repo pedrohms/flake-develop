@@ -77,15 +77,17 @@
               shellHook = "";
             };
             php = pkgs.mkShell {
-              name = "php";
+              name = "php82";
               buildInputs = with pkgs; [
-                php83Packages.composer 
-                php83
+                php82Packages.composer 
+                php82
                 ripgrep
                 fish
                 nodejs_20
-                php81Extensions.pdo_mysql
-                php81Extensions.pdo_sqlite
+                nodePackages_latest.pnpm
+                nodePackages_latest.prisma
+                php82Extensions.pdo_mysql
+                php82Extensions.pdo_sqlite
               ];
               shellHook = "";
             };
