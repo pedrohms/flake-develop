@@ -106,7 +106,7 @@
               shellHook = "";
             };
             bun = pkgs.mkShell {
-              name = "nodejs";
+              name = "bun";
               buildInputs = with pkgs; [
                 nodejs_20
                 nodePackages_latest.pnpm
