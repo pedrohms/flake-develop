@@ -118,7 +118,7 @@
                 zlib
                 bun
               ];
-            }
+            };
             gcc = pkgs.mkShell {
               name = "gcc";
               buildInputs = with pkgs; [
