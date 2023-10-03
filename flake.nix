@@ -62,17 +62,12 @@
               ];
               shellHook = "";
             };
-            python2 = pkgs.mkShell {
-              name = "python2";
-              buildInputs = with pkgs; [
-                python2
-              ];
-              shellHook = "";
-            };
-            python3 = pkgs.mkShell {
+            python = pkgs.mkShell {
               name = "python3";
               buildInputs = with pkgs; [
                 python3
+                poetry
+                nodejs_20
               ];
               shellHook = "";
             };
