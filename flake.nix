@@ -120,6 +120,17 @@
                 gcc
                 cmake
                 gnumake
+                stdenv.cc
+                stdenv.cc.libc stdenv.cc.libc_dev
+                # git checkout need flex as they are not complete release tarballs
+                m4
+                bison
+                flex
+                texinfo
+                # test harness
+                dejagnu
+                autogen
+                zlib zlib.dev
               ];
               shellHook = "";
             };
