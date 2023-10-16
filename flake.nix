@@ -128,6 +128,7 @@
                 # flex
                 # texinfo
                 # test harness
+                libclang
                 dejagnu
                 autogen
                 zlib zlib.dev
