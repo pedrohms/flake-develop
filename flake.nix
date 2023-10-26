@@ -199,6 +199,7 @@
               # an used parameter.
               GRADLE_OPTS = "-Dorg.gradle.project.android.aapt2FromMavenOverride=${androidSdk}/share/android-sdk/build-tools/34.0.0/aapt2";
               GRADLE_USER_HOME = "/home/framework/.gradle";
+              DART_PATH = "${pkgs.dart}";
             };
             cpp = pkgs.mkShell {
               name = "cpp";
@@ -211,6 +212,7 @@
                 zlib zlib.dev
                 libcxx
                 libclang
+                pkg-config
               ];
             };
             gcc = (pkgs.buildFHSEnv {
@@ -233,6 +235,7 @@
                 autogen
                 zlib zlib.dev
                 libcxx
+                pkg-config
               ];
               runScript = "fish";
             }).env;
