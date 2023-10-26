@@ -200,6 +200,7 @@
               GRADLE_OPTS = "-Dorg.gradle.project.android.aapt2FromMavenOverride=${androidSdk}/share/android-sdk/build-tools/34.0.0/aapt2";
               GRADLE_USER_HOME = "/home/framework/.gradle";
               DART_PATH = "${pkgs.dart}";
+              FLUTTER_PATH = "${pkgs.flutter}";
             };
             cpp = pkgs.mkShell {
               name = "cpp";
