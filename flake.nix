@@ -30,6 +30,7 @@
             platforms-android-30
             platforms-android-31
             platforms-android-33
+            system-images-android-32-google-apis-x86-64
           ]);
           pinnedJDK = pkgs.jdk17;
         in
@@ -52,6 +53,16 @@
               name = "jdk";
               buildInputs = with pkgs; [
                 jdk
+                maven
+                gradle
+                google-java-format
+              ];
+              shellHook = "";
+            };
+            jdk21 = pkgs.mkShell {
+              name = "jdk";
+              buildInputs = with pkgs; [
+                jdk21
                 maven
                 gradle
                 google-java-format
@@ -105,6 +116,7 @@
                 ripgrep
                 fish
                 nodejs_20
+                phpactor
                 nodePackages_latest.pnpm
                 nodePackages_latest.prisma
                 php82Extensions.pdo_mysql
@@ -156,9 +168,9 @@
                 at-spi2-core.dev
                 clang
                 cmake
-                nixpkgs-stable.legacyPackages.${system}.pkgs.dart
+                dart
                 dbus.dev
-                nixpkgs-stable.legacyPackages.${system}.pkgs.flutter
+                flutter
                 gtk3
                 libdatrie
                 libepoxy.dev
@@ -186,10 +198,24 @@
               GRADLE_OPTS = "-Dorg.gradle.project.android.aapt2FromMavenOverride=${androidSdk}/share/android-sdk/build-tools/34.0.0/aapt2";
               GRADLE_USER_HOME = "/home/framework/.gradle";
             };
+            cpp = pkgs.mkShell {
+              name = "cpp";
+              buildInputs = with pkgs; [
+                clang
+                cmake
+                gnumake
+                xorg.libX11 xorg.libXinerama xorg.libXft 
+                autogen
+                zlib zlib.dev
+                libcxx
+                libclang
+              ];
+            };
             gcc = (pkgs.buildFHSEnv {
               name = "gcc";
               targetPkgs = pkgs: with pkgs; [
                 gcc
+                clang
                 cmake
                 gnumake
                 stdenv.cc
@@ -200,10 +226,11 @@
                 # flex
                 # texinfo
                 # test harness
-                libclang
+                xorg.libX11 xorg.libXinerama xorg.libXft 
                 dejagnu
                 autogen
                 zlib zlib.dev
+                libcxx
               ];
               runScript = "fish";
             }).env;
