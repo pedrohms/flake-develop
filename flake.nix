@@ -7,7 +7,7 @@
   };
   outputs = { self, nixpkgs, flake-utils, android-nixpkgs, nixpkgs-stable }:
   let
-    version = "1.1";
+    version = "1.2";
   in
     flake-utils.lib.eachDefaultSystem
       (system:
