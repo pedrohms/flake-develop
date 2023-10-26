@@ -122,7 +122,9 @@
                 php82Extensions.pdo_mysql
                 php82Extensions.pdo_sqlite
               ];
-              shellHook = "";
+              shellHook = ''
+                export PHPACTOR_PATH=${pkgs.phpactor}
+              '';
             };
             nodejs = pkgs.mkShell {
               name = "nodejs";
