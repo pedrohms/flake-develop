@@ -170,7 +170,7 @@
                 at-spi2-core.dev
                 clang
                 cmake
-                dart
+                # dart
                 dbus.dev
                 flutter
                 gtk3
@@ -199,7 +199,7 @@
               # an used parameter.
               GRADLE_OPTS = "-Dorg.gradle.project.android.aapt2FromMavenOverride=${androidSdk}/share/android-sdk/build-tools/34.0.0/aapt2";
               GRADLE_USER_HOME = "/home/framework/.gradle";
-              DART_PATH = "${pkgs.dart}";
+              DART_PATH = "${pkgs.flutter}";
               FLUTTER_PATH = "${pkgs.flutter}";
             };
             cpp = pkgs.mkShell {
