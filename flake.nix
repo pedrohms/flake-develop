@@ -202,7 +202,7 @@
               DART_PATH = "${pkgs.flutter}";
               FLUTTER_PATH = "${pkgs.flutter}";
             };
-            cpp = pkgs.mkShell {
+            cpp = pkgs.mkShell rec {
               name = "cpp";
               buildInputs = with pkgs; [
                 clang
@@ -214,7 +214,9 @@
                 libcxx
                 libclang
                 pkg-config
+                libmysqlclient
               ];
+              LD_LIBRARY_PATH = with pkgs; lib.makeLibraryPath [ libmysqlclient ];
             };
             gcc = (pkgs.buildFHSEnv {
               name = "gcc";
@@ -237,6 +239,7 @@
                 zlib zlib.dev
                 libcxx
                 pkg-config
+                libmysqlclient
               ];
               runScript = "fish";
             }).env;
