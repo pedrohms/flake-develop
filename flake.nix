@@ -132,6 +132,7 @@
                 php82Extensions.xdebug
                 vscode-extensions.devsense.profiler-php-vscode
               ];
+              XDEBUG_MODE = "debug";
               shellHook = ''
                 export PHPACTOR_PATH=${pkgs.phpactor}
               '';
