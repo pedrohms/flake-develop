@@ -129,6 +129,8 @@
                 nodePackages_latest.prisma
                 php82Extensions.pdo_mysql
                 php82Extensions.pdo_sqlite
+                php82Extensions.xdebug
+                vscode-extensions.devsense.profiler-php-vscode
               ];
               shellHook = ''
                 export PHPACTOR_PATH=${pkgs.phpactor}
