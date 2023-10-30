@@ -56,6 +56,14 @@
                 maven
                 gradle
                 google-java-format
+                nodejs_20
+                nodePackages_latest.pnpm
+                nodePackages_latest.prisma
+                openssl
+                protobuf3_20
+                cargo
+                pkg-config
+                zlib
               ];
               shellHook = "";
             };
