@@ -228,6 +228,7 @@
                 pkg-config
                 libmysqlclient
                 gdb
+                lldb
               ];
               LD_LIBRARY_PATH = with pkgs; lib.makeLibraryPath [ libmysqlclient ];
             };
