@@ -226,6 +226,7 @@
                 libclang
                 pkg-config
                 libmysqlclient
+                gdb
               ];
               LD_LIBRARY_PATH = with pkgs; lib.makeLibraryPath [ libmysqlclient ];
             };
