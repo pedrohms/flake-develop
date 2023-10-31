@@ -231,6 +231,7 @@
                 lldb
               ];
               LD_LIBRARY_PATH = with pkgs; lib.makeLibraryPath [ libmysqlclient ];
+              LLDB_PATH = "${pkgs.lldb}";
             };
             gcc = (pkgs.buildFHSEnv {
               name = "gcc";
