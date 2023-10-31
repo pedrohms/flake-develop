@@ -41,6 +41,7 @@
               buildInputs = with pkgs; [
                 nodejs_20
                 go
+                delve
                 python3
                 maven
                 jdk  
