@@ -228,10 +228,10 @@
                 pkg-config
                 libmysqlclient
                 gdb
-                lldb
+                vscode-extensions.vadimcn.vscode-lldb
               ];
               LD_LIBRARY_PATH = with pkgs; lib.makeLibraryPath [ libmysqlclient ];
-              LLDB_PATH = "${pkgs.lldb}";
+              LLDB_PATH = "${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter";
             };
             gcc = (pkgs.buildFHSEnv {
               name = "gcc";
