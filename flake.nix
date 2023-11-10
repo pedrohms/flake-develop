@@ -65,6 +65,7 @@
                 cargo
                 pkg-config
                 zlib
+                kotlin
               ];
               shellHook = "";
             };
