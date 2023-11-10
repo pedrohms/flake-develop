@@ -66,6 +66,7 @@
                 pkg-config
                 zlib
                 kotlin
+                jetbrains.idea-community
               ];
               shellHook = "";
             };
