@@ -87,8 +87,19 @@
                 maven
                 gradle
                 google-java-format
+                nodejs_20
+                nodePackages_latest.pnpm
+                nodePackages_latest.prisma
+                openssl
+                protobuf3_20
+                cargo
+                pkg-config
+                zlib
+                kotlin
+                kotlin-language-server
               ];
               shellHook = "";
+              KOTLIN_LSP_HOME = "${pkgs.kotlin-language-server}";
             };
             jdk11 = pkgs.mkShell {
               name = "jdk11";
@@ -260,6 +271,21 @@
               ];
               runScript = "fish";
             }).env;
+            dotnet = pkgs.mkShell {
+              name = "bun";
+              buildInputs = with pkgs; [
+                nodejs_20
+                nodePackages_latest.pnpm
+                nodePackages_latest.prisma
+                openssl
+                protobuf3_20
+                cargo
+                pkg-config
+                zlib
+                bun
+                dotnet-sdk_8
+              ];
+            };
           };
         }
       );
