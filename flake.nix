@@ -131,19 +131,20 @@
               shellHook = "";
             };
             php = pkgs.mkShell {
-              name = "php82";
+              name = "php83";
               buildInputs = with pkgs; [
-                php82Packages.composer 
-                php82
+                php83Packages.composer 
+                php83
                 ripgrep
                 fish
                 nodejs_20
                 phpactor
                 nodePackages_latest.pnpm
                 nodePackages_latest.prisma
-                php82Extensions.pdo_mysql
-                php82Extensions.pdo_sqlite
-                php82Extensions.xdebug
+                php83Extensions.pdo_mysql
+                php83Extensions.pdo_sqlite
+                php83Extensions.xdebug
+                php83Extensions.redis
                 vscode-extensions.devsense.profiler-php-vscode
               ];
               XDEBUG_MODE = "debug";
