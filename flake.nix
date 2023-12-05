@@ -246,7 +246,7 @@
                 gf
               ];
               LD_LIBRARY_PATH = with pkgs; lib.makeLibraryPath [ libmysqlclient ];
-              MYSQL_PATH = "${pkgs.libmysqlclient}";
+              MYSQL_PATH = "${pkgs.libmysqlclient}/lib/mariadb";
               LLDB_PATH = "${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter";
             };
             gcc = (pkgs.buildFHSEnv {
