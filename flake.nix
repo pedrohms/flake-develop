@@ -244,9 +244,12 @@
                 gdb
                 vscode-extensions.vadimcn.vscode-lldb
                 gf
+                wxGTK32
+                cmakeWithGui
               ];
               LD_LIBRARY_PATH = with pkgs; lib.makeLibraryPath [ libmysqlclient ];
               MYSQL_PATH = "${pkgs.libmysqlclient}/lib/mariadb";
+              WX_PATH = "${pkgs.wxGTK32}";
               LLDB_PATH = "${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter";
             };
             gcc = (pkgs.buildFHSEnv {
