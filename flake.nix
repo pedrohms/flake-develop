@@ -247,6 +247,7 @@
                 wxGTK32
                 cmakeWithGui
                 gtk4.dev
+                ninja
               ];
               LD_LIBRARY_PATH = with pkgs; lib.makeLibraryPath [ gtk4  libmysqlclient ];
               WX_PATH = "${pkgs.wxGTK32}";
