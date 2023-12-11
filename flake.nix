@@ -6,7 +6,7 @@
   };
   outputs = { self, nixpkgs, flake-utils, android-nixpkgs }:
   let
-    version = "1.2.1";
+    version = "1.2.2";
   in
     flake-utils.lib.eachDefaultSystem
       (system:
@@ -52,7 +52,7 @@
             jdk = pkgs.mkShell {
               name = "jdk";
               buildInputs = with pkgs; [
-                jdk
+                jdk21
                 maven
                 gradle
                 google-java-format
