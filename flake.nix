@@ -3,9 +3,8 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     android-nixpkgs.url = "github:tadfisher/android-nixpkgs";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
   };
-  outputs = { self, nixpkgs, flake-utils, android-nixpkgs, nixpkgs-stable }:
+  outputs = { self, nixpkgs, flake-utils, android-nixpkgs }:
   let
     version = "1.2.1";
   in
@@ -194,7 +193,7 @@
                 zlib
                 dart
                 at-spi2-core.dev
-                clang
+                clang_17
                 cmake
                 # dart
                 dbus.dev
@@ -231,14 +230,13 @@
             cpp = pkgs.mkShell rec {
               name = "cpp";
               buildInputs = with pkgs; [
-                clang
+                clang_17
                 cmake
                 gnumake
                 xorg.libX11 xorg.libXinerama xorg.libXft 
                 autogen
                 zlib zlib.dev
                 libcxx
-                libclang
                 pkg-config
                 libmysqlclient
                 gdb
@@ -257,7 +255,7 @@
               name = "gcc";
               targetPkgs = pkgs: with pkgs; [
                 gcc
-                clang
+                clang_17
                 cmake
                 gnumake
                 stdenv.cc
