@@ -25,7 +25,7 @@
             build-tools-34-0-0
             platform-tools
             emulator
-            patcher-v4
+            # patcher-v4
             platforms-android-30
             platforms-android-31
             platforms-android-33
@@ -69,10 +69,10 @@
               ];
               shellHook = "";
             };
-            jdk21 = pkgs.mkShell {
+            jdk19 = pkgs.mkShell {
               name = "jdk";
               buildInputs = with pkgs; [
-                jdk21
+                jdk
                 maven
                 gradle
                 google-java-format
@@ -151,18 +151,27 @@
                 export PHPACTOR_PATH=${pkgs.phpactor}
               '';
             };
-            nodejs = pkgs.mkShell {
+            nodejs = pkgs.mkShell rec {
               name = "nodejs";
               buildInputs = with pkgs; [
-                nodejs_20
+                android-studio
+                androidSdk
+                pinnedJDK
+                nodejs_21
                 nodePackages_latest.pnpm
                 nodePackages_latest.prisma
+                nodePackages_latest.eas-cli
+                nodePackages_latest.expo-cli
                 openssl
                 protobuf3_20
                 cargo
                 pkg-config
                 zlib
+                yarn
               ];
+              ANDROID_HOME = "/home/framework/Android/Sdk";
+              ANDROID_SDK_ROOT = "/home/framework/Android/Sdk";
+              JAVA_HOME = pinnedJDK;
               shellHook = "";
             };
             bun = pkgs.mkShell {
@@ -211,13 +220,16 @@
                 util-linux.dev
                 xorg.libXdmcp
                 xorg.libXtst
+                android-studio
               ];
               # Make Flutter build on desktop
               CPATH = "${pkgs.xorg.libX11.dev}/include:${pkgs.xorg.xorgproto}/include";
               LD_LIBRARY_PATH = with pkgs; lib.makeLibraryPath [ atk cairo epoxy gdk-pixbuf glib gtk3 harfbuzz pango ];
               
-              ANDROID_HOME = "${androidSdk}/share/android-sdk";
-              ANDROID_SDK_ROOT = "${androidSdk}/share/android-sdk";
+              ANDROID_HOME = "/home/framework/Android/Sdk";
+              ANDROID_SDK_ROOT = "/home/framework/Android/Sdk";
+              # ANDROID_HOME = "${androidSdk}/share/android-sdk";
+              # ANDROID_SDK_ROOT = "${androidSdk}/share/android-sdk";
               JAVA_HOME = pinnedJDK;
 
               # Fix an issue with Flutter using an older version of aapt2, which does not know
@@ -277,7 +289,7 @@
               runScript = "fish";
             }).env;
             dotnet = pkgs.mkShell {
-              name = "bun";
+              name = "dotnet";
               buildInputs = with pkgs; [
                 nodejs_20
                 nodePackages_latest.pnpm
