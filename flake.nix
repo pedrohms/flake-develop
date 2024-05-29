@@ -23,12 +23,11 @@
             build-tools-30-0-3
             build-tools-33-0-2
             build-tools-34-0-0
-            platform-tools
+            # platform-tools
             emulator
             # patcher-v4
-            platforms-android-30
-            platforms-android-31
             platforms-android-33
+            platforms-android-34
             system-images-android-32-google-apis-x86-64
           ]);
           pinnedJDK = pkgs.jdk17;
@@ -38,7 +37,7 @@
             default = pkgs.mkShell {
               name = "nix";
               buildInputs = with pkgs; [
-                nodejs_20
+                nodejs_22
                 go
                 delve
                 python3
@@ -56,7 +55,7 @@
                 maven
                 gradle
                 google-java-format
-                nodejs_20
+                nodejs_22
                 nodePackages_latest.pnpm
                 nodePackages_latest.prisma
                 openssl
@@ -86,7 +85,7 @@
                 maven
                 gradle
                 google-java-format
-                nodejs_20
+                nodejs_22
                 nodePackages_latest.pnpm
                 nodePackages_latest.prisma
                 openssl
@@ -125,7 +124,7 @@
               buildInputs = with pkgs; [
                 python3
                 poetry
-                nodejs_20
+                nodejs_22
               ];
               shellHook = "";
             };
@@ -136,7 +135,7 @@
                 php83
                 ripgrep
                 fish
-                nodejs_20
+                nodejs_22
                 phpactor
                 nodePackages_latest.pnpm
                 nodePackages_latest.prisma
@@ -157,7 +156,7 @@
                 android-studio
                 androidSdk
                 pinnedJDK
-                nodejs_21
+                nodejs_22
                 nodePackages_latest.pnpm
                 nodePackages_latest.prisma
                 nodePackages_latest.eas-cli
@@ -169,15 +168,18 @@
                 zlib
                 yarn
               ];
-              ANDROID_HOME = "/home/framework/Android/Sdk";
-              ANDROID_SDK_ROOT = "/home/framework/Android/Sdk";
+              # ANDROID_HOME = "$HOME/Android/Sdk";
+              # ANDROID_SDK_ROOT = "$HOME/Android/Sdk";
               JAVA_HOME = pinnedJDK;
-              shellHook = "";
+              # shellHook = ''
+              #   export ANDROID_HOME=$HOME/Android/Sdk
+              #   export ANDROID_SDK_ROOT=$HOME/Android/Sdk
+              # '';
             };
             bun = pkgs.mkShell {
               name = "bun";
               buildInputs = with pkgs; [
-                nodejs_20
+                nodejs_22
                 nodePackages_latest.pnpm
                 nodePackages_latest.prisma
                 openssl
@@ -192,9 +194,10 @@
               name = "flutter";
               buildInputs = with pkgs; [
                 androidSdk
+                android-tools
                 pinnedJDK
                 gitlint
-                nodejs_20
+                nodejs_22
                 openssl
                 protobuf3_20
                 cargo
@@ -216,6 +219,7 @@
                 libxkbcommon
                 ninja
                 pcre
+                pcre2
                 pkg-config
                 util-linux.dev
                 xorg.libXdmcp
@@ -224,10 +228,10 @@
               ];
               # Make Flutter build on desktop
               CPATH = "${pkgs.xorg.libX11.dev}/include:${pkgs.xorg.xorgproto}/include";
-              LD_LIBRARY_PATH = with pkgs; lib.makeLibraryPath [ atk cairo epoxy gdk-pixbuf glib gtk3 harfbuzz pango ];
+              LD_LIBRARY_PATH = with pkgs; lib.makeLibraryPath [ atk cairo epoxy gdk-pixbuf glib gtk3 harfbuzz pango androidSdk ];
               
-              ANDROID_HOME = "/home/framework/Android/Sdk";
-              ANDROID_SDK_ROOT = "/home/framework/Android/Sdk";
+              # ANDROID_HOME = "/home/pedro/Android/Sdk";
+              # ANDROID_SDK_ROOT = "/home/pedro/Android/Sdk";
               # ANDROID_HOME = "${androidSdk}/share/android-sdk";
               # ANDROID_SDK_ROOT = "${androidSdk}/share/android-sdk";
               JAVA_HOME = pinnedJDK;
@@ -235,14 +239,18 @@
               # Fix an issue with Flutter using an older version of aapt2, which does not know
               # an used parameter.
               GRADLE_OPTS = "-Dorg.gradle.project.android.aapt2FromMavenOverride=${androidSdk}/share/android-sdk/build-tools/34.0.0/aapt2";
-              GRADLE_USER_HOME = "/home/framework/.gradle";
+              GRADLE_USER_HOME = "$HOME/.gradle";
               DART_PATH = "${pkgs.flutter}";
               FLUTTER_PATH = "${pkgs.flutter}";
+              shellHook = ''
+                export ANDROID_HOME='${androidSdk}/share/android-sdk'
+                export ANDROID_SDK_ROOT='${androidSdk}/share/android-sdk'
+              '';
             };
             cpp = pkgs.mkShell rec {
               name = "cpp";
               buildInputs = with pkgs; [
-                clang_17
+                clang_18
                 cmake
                 gnumake
                 xorg.libX11 xorg.libXinerama xorg.libXft 
@@ -258,8 +266,9 @@
                 cmakeWithGui
                 gtk4.dev
                 ninja
+                raylib
               ];
-              LD_LIBRARY_PATH = with pkgs; lib.makeLibraryPath [ gtk4  libmysqlclient ];
+              LD_LIBRARY_PATH = with pkgs; lib.makeLibraryPath [ gtk4  libmysqlclient raylib ];
               WX_PATH = "${pkgs.wxGTK32}";
               LLDB_PATH = "${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter";
             };
@@ -291,7 +300,7 @@
             dotnet = pkgs.mkShell {
               name = "dotnet";
               buildInputs = with pkgs; [
-                nodejs_20
+                nodejs_22
                 nodePackages_latest.pnpm
                 nodePackages_latest.prisma
                 openssl
