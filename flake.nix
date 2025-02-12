@@ -51,7 +51,7 @@
             jdk = pkgs.mkShell {
               name = "jdk";
               buildInputs = with pkgs; [
-                jdk21
+                jdk22
                 maven
                 gradle
                 google-java-format
@@ -59,7 +59,7 @@
                 nodePackages_latest.pnpm
                 nodePackages_latest.prisma
                 openssl
-                protobuf3_20
+                protobuf
                 cargo
                 pkg-config
                 zlib
@@ -89,7 +89,7 @@
                 nodePackages_latest.pnpm
                 nodePackages_latest.prisma
                 openssl
-                protobuf3_20
+                protobuf
                 cargo
                 pkg-config
                 zlib
@@ -162,7 +162,7 @@
                 nodePackages_latest.eas-cli
                 nodePackages_latest.expo-cli
                 openssl
-                protobuf3_20
+                protobuf
                 cargo
                 pkg-config
                 zlib
@@ -183,7 +183,7 @@
                 nodePackages_latest.pnpm
                 nodePackages_latest.prisma
                 openssl
-                protobuf3_20
+                protobuf
                 cargo
                 pkg-config
                 zlib
@@ -199,11 +199,10 @@
                 gitlint
                 nodejs_22
                 openssl
-                protobuf3_20
+                protobuf
                 cargo
                 pkg-config
                 zlib
-                dart
                 at-spi2-core.dev
                 clang_17
                 cmake
@@ -228,7 +227,7 @@
               ];
               # Make Flutter build on desktop
               CPATH = "${pkgs.xorg.libX11.dev}/include:${pkgs.xorg.xorgproto}/include";
-              LD_LIBRARY_PATH = with pkgs; lib.makeLibraryPath [ atk cairo epoxy gdk-pixbuf glib gtk3 harfbuzz pango androidSdk ];
+              LD_LIBRARY_PATH = with pkgs; lib.makeLibraryPath [ atk cairo libepoxy gdk-pixbuf glib gtk3 harfbuzz pango androidSdk ];
               
               # ANDROID_HOME = "/home/pedro/Android/Sdk";
               # ANDROID_SDK_ROOT = "/home/pedro/Android/Sdk";
@@ -304,7 +303,7 @@
                 nodePackages_latest.pnpm
                 nodePackages_latest.prisma
                 openssl
-                protobuf3_20
+                protobuf
                 cargo
                 pkg-config
                 zlib
