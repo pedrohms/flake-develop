@@ -51,13 +51,13 @@
             jdk = pkgs.mkShell {
               name = "jdk";
               buildInputs = with pkgs; [
-                jdk22
+                jdk23
                 maven
                 gradle
                 google-java-format
                 nodejs_22
                 nodePackages_latest.pnpm
-                nodePackages_latest.prisma
+                # nodePackages_latest.prisma
                 openssl
                 protobuf
                 cargo
