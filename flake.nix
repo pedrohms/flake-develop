@@ -204,7 +204,7 @@
                 pkg-config
                 zlib
                 at-spi2-core.dev
-                clang_17
+                clang
                 cmake
                 # dart
                 dbus.dev
@@ -275,7 +275,7 @@
               name = "gcc";
               targetPkgs = pkgs: with pkgs; [
                 gcc
-                clang_17
+                clang
                 cmake
                 gnumake
                 stdenv.cc
